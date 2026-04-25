@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<tryton>
+    <data>
+        <record model="ir.ui.view" id="routing_step_view_form">
+            <field name="model">production.routing.step</field>
+            <field name="inherit" ref="production_routing.routing_step_view_form"/>
+            <field name="name">routing_step_form</field>
+        </record>
+
+        <record model="ir.ui.view" id="routing_step_material_view_list">
+            <field name="model">production.routing.step.material</field>
+            <field name="type">tree</field>
+            <field name="name">routing_step_material_list</field>
+        </record>
+        <record model="ir.ui.view" id="routing_step_material_view_form">
+            <field name="model">production.routing.step.material</field>
+            <field name="type">form</field>
+            <field name="name">routing_step_material_form</field>
+        </record>
+        <record model="ir.ui.view" id="routing_step_output_material_view_list">
+            <field name="model">production.routing.step.output_material</field>
+            <field name="type">tree</field>
+            <field name="name">routing_step_output_material_list</field>
+        </record>
+        <record model="ir.ui.view" id="routing_step_output_material_view_form">
+            <field name="model">production.routing.step.output_material</field>
+            <field name="type">form</field>
+            <field name="name">routing_step_output_material_form</field>
+        </record>
+
+        <record model="ir.model.access" id="access_routing_step_material">
+            <field name="model">production.routing.step.material</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+        <record model="ir.model.access" id="access_routing_step_material_admin">
+            <field name="model">production.routing.step.material</field>
+            <field name="group" ref="production.group_production_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+        <record model="ir.model.access" id="access_routing_step_output_material">
+            <field name="model">production.routing.step.output_material</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+        <record model="ir.model.access"
+            id="access_routing_step_output_material_admin">
+            <field name="model">production.routing.step.output_material</field>
+            <field name="group" ref="production.group_production_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+
+        <record model="ir.model.button" id="routing_step_explode_from_bom_button">
+            <field name="model">production.routing.step</field>
+            <field name="name">explode_from_bom</field>
+            <field name="string">Explode BOM</field>
+        </record>
+    </data>
+</tryton>

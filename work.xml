@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<tryton>
+    <data>
+        <record model="ir.ui.view" id="work_view_form">
+            <field name="model">production.work</field>
+            <field name="inherit" ref="production_work.work_view_form"/>
+            <field name="name">work_form</field>
+        </record>
+        <record model="ir.ui.view" id="work_cycle_view_form">
+            <field name="model">production.work.cycle</field>
+            <field name="inherit" ref="production_work.work_cycle_view_form"/>
+            <field name="name">work_cycle_form</field>
+        </record>
+    </data>
+</tryton>

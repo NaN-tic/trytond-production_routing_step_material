@@ -1,0 +1,166 @@
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "field:production.routing.step,materials:"
+msgid "Consumed Materials"
+msgstr "Materiales consumidos"
+
+msgctxt "field:production.routing.step,consume_product_categories:"
+msgid "Consume Product Categories"
+msgstr "Categorías de producto a consumir"
+
+msgctxt "field:production.routing.step,explode_bom:"
+msgid "BOM"
+msgstr "LdM"
+
+msgctxt "field:production.routing.step,explode_product:"
+msgid "BOM Product"
+msgstr "Producto LdM"
+
+msgctxt "field:production.routing.step,explode_quantity:"
+msgid "BOM Quantity"
+msgstr "Cantidad LdM"
+
+msgctxt "field:production.routing.step,explode_unit:"
+msgid "BOM Unit"
+msgstr "Unidad LdM"
+
+msgctxt "field:production.routing.step,explode_uom_category:"
+msgid "BOM UOM Category"
+msgstr "Categoría UdM LdM"
+
+msgctxt "field:production.routing.step,output_materials:"
+msgid "Output Materials"
+msgstr "Materiales salientes"
+
+msgctxt "field:production.routing.step.material,product:"
+msgid "Product"
+msgstr "Producto"
+
+msgctxt "field:production.routing.step.material,product_uom_category:"
+msgid "Product UOM Category"
+msgstr "Categoría UdM del producto"
+
+msgctxt "field:production.routing.step.material,quantity:"
+msgid "Quantity"
+msgstr "Cantidad"
+
+msgctxt "field:production.routing.step.material,quantity_type:"
+msgid "Quantity Type"
+msgstr "Tipo de cantidad"
+
+msgctxt "field:production.routing.step.material,step:"
+msgid "Routing Step"
+msgstr "Paso de ruta"
+
+msgctxt "field:production.routing.step.material,step_allowed_categories:"
+msgid "Step Allowed Categories"
+msgstr "Categorías permitidas del paso"
+
+msgctxt "field:production.routing.step.material,unit:"
+msgid "Unit"
+msgstr "Unidad"
+
+msgctxt "field:production.work,materials:"
+msgid "Consumed Materials"
+msgstr "Materiales consumidos"
+
+msgctxt "field:production.work,input_moves:"
+msgid "Input Moves"
+msgstr "Movimientos de entrada"
+
+msgctxt "field:production.work,routing_step:"
+msgid "Routing Step"
+msgstr "Paso de ruta"
+
+msgctxt "field:production.work.material,move:"
+msgid "Consumption Move"
+msgstr "Movimiento de consumo"
+
+msgctxt "field:production.work.material,product:"
+msgid "Product"
+msgstr "Producto"
+
+msgctxt "field:production.work.material,product_uom_category:"
+msgid "Product UOM Category"
+msgstr "Categoría UdM del producto"
+
+msgctxt "field:production.work.material,quantity:"
+msgid "Quantity"
+msgstr "Cantidad"
+
+msgctxt "field:production.work.material,quantity_type:"
+msgid "Quantity Type"
+msgstr "Tipo de cantidad"
+
+msgctxt "field:production.work.material,unit:"
+msgid "Unit"
+msgstr "Unidad"
+
+msgctxt "field:production.work.material,work:"
+msgid "Work"
+msgstr "Trabajo"
+
+msgctxt "field:stock.move,work:"
+msgid "Work"
+msgstr "Trabajo"
+
+msgctxt "model:production.routing.step.material,name:"
+msgid "Routing Step Material"
+msgstr "Material de paso de ruta"
+
+msgctxt "field:production.routing.step.output_material,product:"
+msgid "Product"
+msgstr "Producto"
+
+msgctxt "field:production.routing.step.output_material,product_uom_category:"
+msgid "Product UOM Category"
+msgstr "Categoría UdM del producto"
+
+msgctxt "field:production.routing.step.output_material,quantity:"
+msgid "Quantity"
+msgstr "Cantidad"
+
+msgctxt "field:production.routing.step.output_material,quantity_type:"
+msgid "Quantity Type"
+msgstr "Tipo de cantidad"
+
+msgctxt "field:production.routing.step.output_material,step:"
+msgid "Routing Step"
+msgstr "Paso de ruta"
+
+msgctxt "field:production.routing.step.output_material,unit:"
+msgid "Unit"
+msgstr "Unidad"
+
+msgctxt "model:production.routing.step.output_material,name:"
+msgid "Routing Step Output Material"
+msgstr "Material saliente de paso de ruta"
+
+msgctxt "selection:production.routing.step.output_material,quantity_type:"
+msgid "Fixed"
+msgstr "Fija"
+
+msgctxt "selection:production.routing.step.output_material,quantity_type:"
+msgid "Proportional"
+msgstr "Proporcional"
+
+msgctxt "model:production.work.material,name:"
+msgid "Production Work Material"
+msgstr "Material de trabajo de producción"
+
+msgctxt "selection:production.routing.step.material,quantity_type:"
+msgid "Fixed"
+msgstr "Fija"
+
+msgctxt "selection:production.routing.step.material,quantity_type:"
+msgid "Proportional"
+msgstr "Proporcional"
+
+msgctxt "selection:production.work.material,quantity_type:"
+msgid "Fixed"
+msgstr "Fija"
+
+msgctxt "selection:production.work.material,quantity_type:"
+msgid "Proportional"
+msgstr "Proporcional"

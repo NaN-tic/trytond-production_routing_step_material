@@ -1,0 +1,25 @@
+<data>
+    <xpath expr="/form/field[@name='sequence']" position="after">
+        <newline/>
+        <field name="consume_product_categories" colspan="4" xexpand="1"/>
+        <group id="explode_bom_block" col="8" colspan="4">
+            <label name="explode_product"/>
+            <field name="explode_product"/>
+            <label name="explode_bom"/>
+            <field name="explode_bom"/>
+            <label name="explode_quantity"/>
+            <field name="explode_quantity"/>
+            <label name="explode_unit"/>
+            <field name="explode_unit"/>
+            <button name="explode_from_bom" icon="tryton-refresh"/>
+        </group>
+        <newline/>
+        <group id="consumed_materials_block" colspan="4">
+            <field name="materials" colspan="4" xexpand="1"
+                view_ids="production_routing_step_material.routing_step_material_view_list"/>
+        </group>
+        <newline/>
+        <field name="output_materials" colspan="4" xexpand="1"
+            view_ids="production_routing_step_material.routing_step_output_material_view_list"/>
+    </xpath>
+</data>
