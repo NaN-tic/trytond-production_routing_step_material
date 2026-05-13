@@ -1,7 +1,13 @@
 <data>
-    <xpath expr="/form/field[@name='work_center']" position="after">
-        <newline/>
-        <field name="input_moves" colspan="4" xexpand="1"
-            view_ids="stock.move_view_list_shipment"/>
+    <xpath expr="//field[@name='cycles']" position="replace">
+        <notebook colspan="4">
+            <page string="Cycles" id="cycles">
+                <field name="cycles" colspan="4" xexpand="1"/>
+            </page>
+            <page string="Input Moves" id="input_moves">
+                <field name="input_moves" colspan="4" xexpand="1"
+                    view_ids="stock.move_view_list_shipment"/>
+            </page>
+        </notebook>
     </xpath>
 </data>

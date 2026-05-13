@@ -24,7 +24,7 @@ class Work(metaclass=PoolMeta):
             depends=['state', 'production']),
         'get_input_moves')
 
-    def get_input_moves(self, name):
+    def get_input_moves(self, name=None):
         if not self.production or not self.routing_step:
             return []
         moves = [
@@ -46,7 +46,7 @@ class Work(metaclass=PoolMeta):
         if not allowed_category_ids:
             return []
         return [
-            move.id for move in moves
+            move for move in moves
             if (move.product
                 and {c.id for c in move.product.template.categories}
                 & allowed_category_ids)
@@ -55,16 +55,9 @@ class Work(metaclass=PoolMeta):
 class WorkCycle(metaclass=PoolMeta):
     __name__ = 'production.work.cycle'
 
-    input_moves = fields.Function(
-        fields.One2Many(
-            'stock.move', None, 'Input Moves',
+    input_moves = fields.One2Many(
+            'stock.move', 'origin', 'Input Moves',
             states={
                 'readonly': Eval('state').in_(['done', 'cancelled']),
                 },
-            depends=['state']),
-        'get_input_moves')
-
-    def get_input_moves(self, name):
-        if not self.work:
-            return []
-        return self.work.get_input_moves(name)
+            depends=['state'])
