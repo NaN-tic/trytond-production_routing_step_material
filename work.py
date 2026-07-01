@@ -14,7 +14,7 @@ class Work(metaclass=PoolMeta):
         ondelete='SET NULL')
     input_moves = fields.Function(
         fields.Many2Many(
-            'stock.move', None, 'Input Moves',
+            'stock.move', None, None, 'Input Moves',
             domain=[
                 ('production_input', '=', Eval('production', -1)),
                 ],
