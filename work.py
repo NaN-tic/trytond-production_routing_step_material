@@ -13,7 +13,7 @@ class Work(metaclass=PoolMeta):
         'production.routing.step', 'Routing Step', readonly=True,
         ondelete='SET NULL')
     input_moves = fields.Function(
-        fields.One2Many(
+        fields.Many2Many(
             'stock.move', None, 'Input Moves',
             domain=[
                 ('production_input', '=', Eval('production', -1)),
