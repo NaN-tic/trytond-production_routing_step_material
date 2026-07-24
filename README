@@ -1,1 +1,2 @@
-This module allows defining consumed materials for each routing step.
+This module allows defining which product categories can be consumed in
+each routing step.
