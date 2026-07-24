@@ -10,8 +10,6 @@ def register():
     Pool.register(
         routing.RoutingStep,
         routing.RoutingStepCategory,
-        routing.RoutingStepMaterial,
-        routing.RoutingStepOutputMaterial,
         work.Work,
         work.WorkCycle,
         module='production_routing_step_material', type_='model')

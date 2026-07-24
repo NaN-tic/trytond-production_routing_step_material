@@ -32,21 +32,11 @@ class Work(metaclass=PoolMeta):
             if move.state not in {'done', 'cancelled'}
             ]
         step = self.routing_step
-        step_products = {
-            material.product.id
-            for material in step.materials
-            if material.product
-            }
-        if step_products:
-            return [
-                move.id for move in moves
-                if move.product and move.product.id in step_products
-                ]
         allowed_category_ids = step._get_allowed_category_ids() or set()
         if not allowed_category_ids:
             return []
         return [
-            move for move in moves
+            move.id for move in moves
             if (move.product
                 and {c.id for c in move.product.template.categories}
                 & allowed_category_ids)
