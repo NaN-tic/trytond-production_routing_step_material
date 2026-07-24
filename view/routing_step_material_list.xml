@@ -1,6 +1,0 @@
-<tree>
-    <field name="product" expand="1"/>
-    <field name="quantity_type"/>
-    <field name="quantity"/>
-    <field name="unit"/>
-</tree>
