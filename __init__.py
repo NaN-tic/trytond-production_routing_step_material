@@ -12,4 +12,6 @@ def register():
         routing.RoutingStepCategory,
         work.Work,
         work.WorkCycle,
+        work.WorkCycleIngredient,
+        work.Move,
         module='production_routing_step_material', type_='model')

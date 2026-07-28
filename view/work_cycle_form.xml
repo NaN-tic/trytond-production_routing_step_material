@@ -1,7 +1,8 @@
 <data>
     <xpath expr="/form/field[@name='work']" position="after">
         <newline/>
-        <field name="input_moves" colspan="4" xexpand="1"
-            view_ids="stock.move_view_list_shipment"/>
+        <field name="input_products" invisible="1"/>
+        <field name="ingredient_lines" colspan="4" xexpand="1"
+            view_ids="production_routing_step_material.work_cycle_ingredient_view_list"/>
     </xpath>
 </data>

@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<tree editable="1">
+    <field name="valid_lots" tree_invisible="1"/>
+    <field name="product"/>
+    <field name="quantity"/>
+    <field name="unit"/>
+    <field name="lot"/>
+</tree>

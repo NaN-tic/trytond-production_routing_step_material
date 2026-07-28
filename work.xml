@@ -11,5 +11,36 @@
             <field name="inherit" ref="production_work.work_cycle_view_form"/>
             <field name="name">work_cycle_form</field>
         </record>
+        <record model="ir.ui.view" id="work_cycle_ingredient_view_list">
+            <field name="model">production.work.cycle.ingredient</field>
+            <field name="type">tree</field>
+            <field name="name">work_cycle_ingredient_list</field>
+        </record>
+        <record model="ir.model.access" id="access_work_cycle_ingredient">
+            <field name="model">production.work.cycle.ingredient</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+        <record model="ir.model.access" id="access_work_cycle_ingredient_group_production">
+            <field name="model">production.work.cycle.ingredient</field>
+            <field name="group" ref="production.group_production"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+        <record model="ir.rule.group" id="rule_group_work_cycle_ingredient_companies">
+            <field name="name">User in companies</field>
+            <field name="model">production.work.cycle.ingredient</field>
+            <field name="global_p" eval="True"/>
+        </record>
+        <record model="ir.rule" id="rule_work_cycle_ingredient_companies">
+            <field name="domain"
+                eval="[('cycle.company', 'in', Eval('companies', []))]"
+                pyson="1"/>
+            <field name="rule_group" ref="rule_group_work_cycle_ingredient_companies"/>
+        </record>
     </data>
 </tryton>
