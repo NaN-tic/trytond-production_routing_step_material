@@ -128,7 +128,6 @@ class Work(metaclass=PoolMeta):
     def _sync_cycle_ingredient_lines(self, cycle, ingredient_lines):
         pool = Pool()
         Ingredient = pool.get('production.work.cycle.ingredient')
-        Lot = pool.get('stock.lot')
 
         consumed_lines = [
             line for line in cycle.ingredient_lines
@@ -164,15 +163,8 @@ class Work(metaclass=PoolMeta):
                 else:
                     raw_lot = str(raw_lot).strip()
                     if raw_lot:
-                        if raw_lot.isdigit():
-                            lot = int(raw_lot)
-                        else:
-                            lots = Lot.search([
-                                ('product', '=', int(product)),
-                                ('number', '=', raw_lot),
-                            ], limit=1)
-                            if lots:
-                                lot = lots[0].id
+                        lot = self._get_or_create_product_lot(
+                            int(product), raw_lot).id
             to_create.append({
                 'cycle': cycle.id,
                 'product': int(product),
@@ -217,6 +209,20 @@ class Work(metaclass=PoolMeta):
         lot_cache[cache_key] = lot
         return lot
 
+    def _get_or_create_product_lot(self, product_id, lot_number):
+        Lot = Pool().get('stock.lot')
+        lots = Lot.search([
+            ('product', '=', product_id),
+            ('number', '=', lot_number),
+        ], limit=1)
+        if lots:
+            return lots[0]
+        lot, = Lot.create([{
+            'product': product_id,
+            'number': lot_number,
+        }])
+        return lot
+
 class WorkCycle(metaclass=PoolMeta):
     __name__ = 'production.work.cycle'
 
@@ -237,7 +243,12 @@ class WorkCycle(metaclass=PoolMeta):
         },
         depends=['id', 'state', 'work'])
     input_products = fields.Function(
-        fields.Many2Many('product.product', None, None, 'Input Products'),
+        fields.Many2Many(
+            'product.product', None, None, 'Input Products',
+            context={
+                'company': Eval('company', -1),
+            },
+            depends=['company']),
         'get_input_products')
 
     @classmethod
