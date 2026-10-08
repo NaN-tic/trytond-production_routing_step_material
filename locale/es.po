@@ -56,3 +56,11 @@ msgstr "Fija"
 msgctxt "selection:production.work.material,quantity_type:"
 msgid "Proportional"
 msgstr "Proporcional"
+
+msgctxt "view:production.work:"
+msgid "Cycles"
+msgstr "Ciclos"
+
+msgctxt "view:production.work:"
+msgid "Input Moves"
+msgstr "Movimientos de entrada"
