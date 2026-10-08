@@ -56,6 +56,7 @@ class Work(metaclass=PoolMeta):
 
         pool = Pool()
         Move = pool.get('stock.move')
+        Uom = pool.get('product.uom')
         lot_cache = {}
         to_consume = []
         source_moves = [
@@ -92,13 +93,17 @@ class Work(metaclass=PoolMeta):
                 available = remaining_by_move.get(move.id, 0.0)
                 if available <= 0:
                     continue
-                consume_quantity = min(available, remaining_quantity)
+                requested = Uom.compute_qty(
+                    line.unit, remaining_quantity, move.unit)
+                consume_quantity = min(available, requested)
                 line_plan.append((move, consume_quantity))
-                remaining_by_move[move.id] = available - consume_quantity
-                remaining_quantity -= consume_quantity
-                if remaining_quantity <= 0:
+                remaining_by_move[move.id] = move.unit.round(
+                    available - consume_quantity)
+                remaining_quantity -= Uom.compute_qty(
+                    move.unit, consume_quantity, line.unit, round=False)
+                if line.unit.round(remaining_quantity) <= 0:
                     break
-            if remaining_quantity > 0:
+            if line.unit.round(remaining_quantity) > 0:
                 return (
                     'No hay cantidad suficiente para consumir el ingrediente '
                     '"%s".' % line.product.rec_name)
