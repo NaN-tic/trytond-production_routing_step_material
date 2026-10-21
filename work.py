@@ -80,8 +80,7 @@ class Work(metaclass=PoolMeta):
 
             available_moves = [
                 move for move in source_moves
-                if (move.product == line.product
-                    and remaining_by_move.get(move.id, 0.0) > 0)
+                if move.product == line.product
             ]
             if not available_moves:
                 return (
@@ -104,9 +103,16 @@ class Work(metaclass=PoolMeta):
                 if line.unit.round(remaining_quantity) <= 0:
                     break
             if line.unit.round(remaining_quantity) > 0:
-                return (
-                    'No hay cantidad suficiente para consumir el ingrediente '
-                    '"%s".' % line.product.rec_name)
+                # Planned inputs are not a limit on actual consumption.
+                # Retain a zero-quantity input for subsequent cycles and use
+                # its locations and unit for any excess consumption.
+                move = available_moves[-1]
+                excess = Uom.compute_qty(
+                    line.unit, remaining_quantity, move.unit)
+                if line_plan and line_plan[-1][0] == move:
+                    line_plan[-1] = (move, line_plan[-1][1] + excess)
+                else:
+                    line_plan.append((move, excess))
             plans.append((line, line_plan))
 
         for move in source_moves:
